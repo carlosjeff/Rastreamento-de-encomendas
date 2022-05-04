@@ -1,0 +1,20 @@
+@import '_reset.css';
+@import '_variaveis.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;500;900&display=swap');
+
+
+body{
+
+    background-color: #fafafa;
+    font-family: var(--familia-titulo);
+
+    height: 100vh;
+    margin: 1em;
+}
+
+
+.conteiner{
+    padding: 1em;
+    background-color: var(--cor-cinza);
+    width: 60vw;
+}
