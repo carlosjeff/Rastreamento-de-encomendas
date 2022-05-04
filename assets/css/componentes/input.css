@@ -8,6 +8,6 @@
 
 
 .input:focus-visible{
-    border: 1px solid var(--cor-cinza-escuro);;
+    border: 1px solid var(--cor-cinza-escuro);
     outline: none;
 }

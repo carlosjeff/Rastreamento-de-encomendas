@@ -1,3 +1,5 @@
+import {StyleHelper} from '../helpers/StyleHelper.js'
+
 export class RastreioView {
 
     #elemento;
@@ -13,21 +15,21 @@ export class RastreioView {
 
         let eventos = model.eventos.map(e => `
         <div class="conteiner estado-conteiner">
-            <span class="estado__icon estado__icon-${this.#qualCor(e.status)}">
-                <i class="fa-solid ${this.#qualIcone(e.status)}"></i>
+            <span class="icon icon-${StyleHelper.cor(e.status)}">
+                <i class="fa-solid ${StyleHelper.icone(e.status)}"></i>
             </span>
-            <ul class="estado__list">
-                <li class="estado__titulo estado__titulo-${this.#qualCor(e.status)}">
+            <ul class="list">
+                <li class="titulo titulo-${StyleHelper.cor(e.status)}">
                     ${
                         e.local + ' - ' + e.status
                     }
                 </li>
-                <li class="estado__data">
+                <li class="data">
                     ${
                         e.dataHora
                     }
                 </li>
-                <li class="estado__status">
+                <li class="status">
                     ${
                         e.subStatus.join('')
                     }
@@ -52,17 +54,5 @@ export class RastreioView {
         this.#elemento.innerHTML = this.template(model);
     }
 
-    #qualCor(status){
-        return status == 'Objeto encaminhado' ? 'azul' : 
-        status == 'Objeto saiu para entrega ao destinatário' ?  'amarelo' : 'verde'
-    }
-
-    #qualIcone(status){
-
-        return status == 'Objeto encaminhado' ? 'fa-truck-arrow-right' : 
-               status == 'Objeto postado' ? 'fa-envelope' : 
-               status == 'Objeto recebido pelos Correios do Brasil' ?  'fa-plane-arrival' : 
-               status == 'Objeto saiu para entrega ao destinatário' ? 'fa-truck-ramp-box' :
-               status == 'Objeto entregue ao destinatário' ? 'fa-house' : 'fa-box';
-    }
+    
 }

@@ -1,5 +1,5 @@
-@import url('./_reset.css');
-@import url('./_variaveis.css');
+@import url('../base/reset.css');
+@import url('../base/variaveis.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;500;900&display=swap');
 
 
@@ -8,7 +8,7 @@ body{
     background-color: #fafafa;
     font-family: var(--familia-titulo);
 
-    height: 100vh;
+    height: 100%;
     margin: 1em;
 }
 
