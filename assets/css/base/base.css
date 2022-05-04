@@ -1,5 +1,5 @@
-@import '_reset.css';
-@import '_variaveis.css';
+@import url('_reset.css');
+@import url('_variaveis.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;500;900&display=swap');
 
 
