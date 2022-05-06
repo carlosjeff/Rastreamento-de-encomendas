@@ -29,6 +29,13 @@ export class EventosModel{
         return this.#subStatus.slice();
     }
 
-   
+    get all(){
+        return {
+            dataHora: this.dataHora,
+            local: this.local,
+            status: this.status,
+            subStatus: this.#subStatus.slice()
+        }
+    }
 
 }

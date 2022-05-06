@@ -28,7 +28,7 @@ export class ConnectionFactory {
                     connection = e.target.result;
                 }
     
-                response(connection);
+                resolve(connection);
             };
 
             openRequest.onerror = e => {
@@ -42,8 +42,9 @@ export class ConnectionFactory {
     static #createStone(connection){
 
         stores.forEach(store => {
+            console.log(connection.objectStoreNames)
             
-            if (connection.objectStoreName.conteins(store)) {
+            if (connection.objectStoreNames.contains(store)) {
                 connection.deleteObjectStore(store);
             }
 

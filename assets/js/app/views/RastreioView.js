@@ -43,7 +43,7 @@ export class RastreioView {
                 <div class="conteiner estado__header">
                     <img class="estado__logo__correios" src="./assets/img/correios-logo.svg"></img>
                     <h2>${model.codigo}</h2>
-                    <p class="estado__data">${model.ultimaAtualizacao.dataHora}</p>
+                    <p class="estado__data">${model.ultimaAtualizacao.evento.dataHora}</p>
                 </div>
                 ${eventos}
         `

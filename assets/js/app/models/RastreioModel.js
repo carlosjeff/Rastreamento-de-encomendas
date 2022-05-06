@@ -1,3 +1,4 @@
+import {EventosModel} from './EventosModel.js'
 
 export class RastreioModel{
 
@@ -6,7 +7,7 @@ export class RastreioModel{
 
     constructor(codigo, ...eventos) {
         this.#codigo = codigo;
-       this.#eventos = this.#eventos.concat(...eventos)
+        this.#eventos = this.#eventos.concat(...eventos)
     }
 
     get codigo(){
@@ -18,7 +19,6 @@ export class RastreioModel{
     }
 
     get ultimaAtualizacao(){
-        return this.#eventos[0];
+        return {codigo: this.#codigo , evento: this.#eventos[0].all};
     }
-
 }
