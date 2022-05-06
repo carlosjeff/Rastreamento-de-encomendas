@@ -11,9 +11,6 @@ export class HistoricoView{
 
 
     template(model) {
-
-        
-
         let eventos = model.map(e => `
         <div class="conteiner historico__item ">
             <span class="item__icon icon-${StyleHelper.cor(e.evento.status)}"><i class="fa-solid ${StyleHelper.icone(e.evento.status)}"></i></span>
@@ -28,7 +25,6 @@ export class HistoricoView{
     }
 
     update(model) {
-
         this.#elemento.innerHTML = this.template(model);
     }
 

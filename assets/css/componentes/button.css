@@ -13,3 +13,7 @@
     background-color: var(--cor-azul-escuro);
     border: 1px solid var(--cor-azul-escuro);
 }
+
+.button:disabled{
+    background-color: #5e90e2
+}

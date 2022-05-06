@@ -34,6 +34,28 @@ export class HistoricoDao{
         })
     }
 
+    edit(chave,rastreio){
+        return new Promise((resolve, reject) => {
+            
+            // let ratreioModel = new RastreioModel(rastreio.codigo, ...rastreio.eventos);
+ 
+             let request = this.#connection
+                 .transaction([this.#store], 'readwrite')
+                 .objectStore(this.#store)
+                 .put(rastreio, chave);
+             
+             request.onsuccess = e => {
+                  resolve(e);
+                  };
+ 
+             request.onerror = e => {
+ 
+                 console.log(e.target.error);
+                 reject(e.target.error);
+             };
+         })
+    }
+
     apagaTodos() {
 
         return new Promise((resolve, reject) => {
@@ -89,7 +111,7 @@ export class HistoricoDao{
         })
     }
 
-    exite(codigo) {
+    existe(rastreio) {
 
         return new Promise((resolve, reject) => {
 
@@ -106,15 +128,24 @@ export class HistoricoDao{
 
                     let dado = atual.value;
 
-                    atual.continue();
+                    if(rastreio.codigo == dado.codigo){
+                        this.edit(atual.key, rastreio)
+                            .then(e => resolve(e))
+                            .catch(err => reject(err));
+                    }else{
+                        atual.continue();
+                    }
+
                 } else {
-                    resolve(historico);
+                   
+                    this.adiciona(rastreio)
+                        .then(() => resolve())
+                        .catch(err => reject(err))
                 }
             }
 
             cursor.onerror = e => {
-                console.log(e.target.error);
-                reject('Não foi possível listar as negociações')
+                reject(e);
             };
 
         })

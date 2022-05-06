@@ -22,8 +22,7 @@ export class RastreioService{
         let url = 'https://api.linketrack.com/track/json';
 
         return this.#http.get(`${url}?user=${user}&token=${token}&codigo=${codigo}`)
-                         .then(response => this.#criaRastreio(codigo, response)
-                           );
+                         .then(response => this.#criaRastreio(codigo, response));
 
     }
 
@@ -33,9 +32,7 @@ export class RastreioService{
             new EventosModel(e.data, e.hora, e.local, e.status, ...e.subStatus)
         ))
         
-        this.salvarHistorico(rastreio).then(res => console.log(res));
-
-        return rastreio
+        return this.salvarHistorico(rastreio).then(() => rastreio);
 
     }
 
@@ -45,7 +42,7 @@ export class RastreioService{
         return ConnectionFactory
             .getConnection()
             .then(connection => new HistoricoDao(connection))
-            .then(dao => dao.adiciona(rastreio.ultimaAtualizacao))
+            .then(dao => dao.existe(rastreio.ultimaAtualizacao))
             .catch(error => console.log(error));
     }
 

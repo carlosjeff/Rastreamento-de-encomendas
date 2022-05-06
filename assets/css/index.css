@@ -17,7 +17,7 @@
     border: 1px solid var(--cor-cinza-claro);
     border-radius: 30px 30px 0px 0px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 80px 1fr;
     margin-top: 1em;
 }
 
@@ -25,9 +25,15 @@
     grid-column: span 3;
 }
 
+.msg-erro{
+    grid-column: span 3;
+}
+
+
+
 .historico__item{
     display: grid;
-    grid-template-columns: 8% auto;
+    grid-template-columns: 100px auto;
     grid-template-rows: 1fr 1fr;
     padding: 0;
     border-radius: 50px;
