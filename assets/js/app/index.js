@@ -6,7 +6,6 @@ let rastreio = new RastreioControllers();
 
 
 document.querySelector('#busca').onclick = () => rastreio.buscar();
-document.querySelector('#busca').onclick = () => console.log('ok');
 document.querySelector('.historicos').onclick = e => {
 
     let array = [ ...e.path.find(e => 
