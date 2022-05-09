@@ -8,7 +8,8 @@ export class StyleHelper{
 
     static cor(status){
         return status == 'Objeto encaminhado' ? 'azul' : 
-        status == 'Objeto saiu para entrega ao destinatário' ?  'amarelo' : 'verde'
+        status == 'Objeto saiu para entrega ao destinatário' ?  'amarelo' :  
+        status == 'Código não localizado' ? 'vermelho' : 'verde'
     }
 
     static icone(status){
@@ -17,6 +18,7 @@ export class StyleHelper{
                status == 'Objeto postado' ? 'fa-envelope' : 
                status == 'Objeto recebido pelos Correios do Brasil' ?  'fa-plane-arrival' : 
                status == 'Objeto saiu para entrega ao destinatário' ? 'fa-truck-ramp-box' :
-               status == 'Objeto entregue ao destinatário' ? 'fa-house' : 'fa-box';
+               status == 'Objeto entregue ao destinatário' ? 'fa-house' : 
+               status == 'Código não localizado' ? 'fa-circle-exclamation' :'fa-box';
     }
 }

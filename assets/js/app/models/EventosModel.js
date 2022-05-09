@@ -6,7 +6,7 @@ export class EventosModel{
     #subStatus = [];
     
     constructor(data, hora, local, status, ...subStatus) {
-       this.#dataHora = `${data} às ${hora}`;
+       this.#dataHora = hora ? `${data} às ${hora}` : data;
        this.#local = local;
        this.#status = status;
        this.#subStatus = this.#subStatus.concat(...subStatus);

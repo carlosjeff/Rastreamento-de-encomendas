@@ -27,6 +27,16 @@ export class RastreioService{
     }
 
     #criaRastreio(codigo, objeto){
+        if(objeto.eventos.length == 0){
+            objeto.eventos.push({
+                status: "Código não localizado",
+                data: "",
+                hora: "",
+                local: codigo,
+                subStatus: []
+            })
+        }
+        console.log('criar',objeto);
 
         let rastreio =  new RastreioModel(codigo, objeto.eventos.map(e => 
             new EventosModel(e.data, e.hora, e.local, e.status, ...e.subStatus)

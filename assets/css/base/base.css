@@ -10,11 +10,7 @@ body{
 
     height: 100%;
     margin: 1em;
+    box-sizing: border-box;
 }
 
 
-.conteiner{
-    padding: 1em;
-    background-color: var(--cor-cinza);
-    width: 60vw;
-}

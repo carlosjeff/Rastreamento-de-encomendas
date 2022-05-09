@@ -49,7 +49,7 @@ export class RastreioControllers{
             .then(objeto => this.#rastreioView.update(objeto))
             .then(objeto => this.#service.listaHistorico())
             .then(lista => new HistoricoView(this.#divHistorico).update(lista))
-            .catch(err => console.log(err));
+            .catch(err => console.log('erro', err));
     }
 
 
@@ -64,7 +64,7 @@ export class RastreioControllers{
 
 
     mask(){
-        let value = this.#inputCodigoRastreio.value.replace(/ /g, '');
+        let value = this.#inputCodigoRastreio.value.replace(/ /g, '').toUpperCase();
         value = value.length > 13 ? value.slice(0, 13) : value;
         this.#inputCodigoRastreio.classList
             .toggle('input-erro', 
@@ -76,6 +76,7 @@ export class RastreioControllers{
         this.sufix(value);
         this.validacaoCod(value);
         this.#inputCodigoRastreio.value = value;
+
     }
 
     sufix(value){
